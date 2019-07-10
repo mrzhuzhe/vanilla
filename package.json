@@ -1,0 +1,17 @@
+{
+  "name": "vanilla",
+  "version": "0.0.1",
+  "description": "simple algorithm and data structure",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bfs-test": "node search/bfs",
+    "dfs-test": "node search/dfs"
+  },
+  "keywords": [
+    "algorithm",
+    "data-structure"
+  ],
+  "author": "mrzhuzhe",
+  "license": "ISC"
+}
