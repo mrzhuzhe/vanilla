@@ -63,4 +63,17 @@ let tree = [
          - 14
          - 15
  */
+console.log("------------- simple tree start --------------");
+console.log(`  5 - 6 - 7 - 16 - 17
+                 - 18
+                 - 19
+                 - 20
+        - 8
+        - 9
+        - 10
+    - 11 - 12
+         - 13
+         - 14
+         - 15`)
+console.log("------------- simple tree end --------------");
 module.exports = tree;

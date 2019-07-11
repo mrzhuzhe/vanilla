@@ -1,19 +1,6 @@
 // 非递归实现
 var tree = require('./simple-tree');
-console.log('tree', JSON.stringify(tree));
-/*
-  5 - 6 - 7 - 16 - 17
-                 - 18
-                 - 19
-                 - 20
-        - 8
-        - 9
-        - 10
-    - 11 - 12
-         - 13
-         - 14
-         - 15
- */
+
 let _dfs = (t) => {
   // 根节点先入队列
   let _queue = [t];
