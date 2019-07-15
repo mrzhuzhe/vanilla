@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bfs-test": "node search/bfs",
-    "dfs-test": "node search/dfs"
+    "bfs": "node search/bfs",
+    "dfs": "node search/dfs",
+    "miSubArr": "node dp/max-increase-arr"
   },
   "keywords": [
     "algorithm",
