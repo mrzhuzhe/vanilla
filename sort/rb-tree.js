@@ -120,7 +120,6 @@ var _insert = (root, n) => {
 }
 
 var _rb_fix = (node, root) => {
-    debugger
     // 递归到顶
     if ( node == root ) {
       node.c = "b";
@@ -131,7 +130,7 @@ var _rb_fix = (node, root) => {
     // 当前节点 p 为 p.p 左节点
     if (node.p == node.p.p.l) {
       // 当前节点的 p.p.r 是红色 > p.p 变红 & p.p.l 和 p.p.r 变为黑色 & rb_fix(node.p.p)
-      if ( node.p.p.r ) {
+      if ( node.p.p.r && node.p.p.r.c == "r" ) {
         node.p.p.c = 'r';
         node.p.p.l.c = 'b';
         node.p.p.r.c = 'b';
@@ -164,7 +163,7 @@ var _rb_fix = (node, root) => {
     // 当前节点 p 为 p.p 右节点
     } else if (node.p == node.p.p.r) {
         // 当前节点的 p.p.l 是红色
-        if ( node.p.p.l ) {
+        if ( node.p.p.l && node.p.p.l.c == "r" ) {
           node.p.p.c = 'r';
           node.p.p.l.c = 'b';
           node.p.p.r.c = 'b';
@@ -194,6 +193,7 @@ var _rb_fix = (node, root) => {
           }
       }
     }
+    root.c = "b";
     return root
 }
 
@@ -215,7 +215,7 @@ var _search = (root, n) => {
   }
 }
 
-var _arr = [12, 4, 8, 19, 23, 31, 38, 41];
+var _arr = [12, 4, 8, 19, 23, 31, 38, 41, 10, 13, 22, 5, 7, 9, 15];
 _arr.forEach(e => {
   _root = _insert(_root, e);
 })
