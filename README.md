@@ -10,7 +10,7 @@ npm run dfs
 npm run bfs
 //  [DP]最大自增子序列  
 npm run miSubArr
-//  [WIP]红黑树排序 目前未做删除功能 还在测试中
+//  [WIP]红黑树排序 目前未做删除功能/存在一个Object.assign(root)问题/还在测试中
 node sort/rb-tree
 
 ```
