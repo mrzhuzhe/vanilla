@@ -13,6 +13,9 @@ npm run miSubArr
 //  [WIP]红黑树排序 目前未做删除功能/存在一个Object.assign(root)问题/还在测试中
 node sort/rb-tree
 
+//  一道 acm 题目 marble game
+node dp/acm-marble-game
+
 ```
 ## TODO
  1. 对原始数据做个可视化
