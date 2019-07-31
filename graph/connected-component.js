@@ -46,4 +46,5 @@ var _connectComponent = (vertex, edge) => {
   })
   return vertex
 }
-_connectComponent(Vertex, Edge);
+
+console.log('connected-component', _connectComponent(Vertex, Edge));
