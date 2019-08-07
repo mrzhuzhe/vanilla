@@ -48,3 +48,9 @@ var _connectComponent = (vertex, edge) => {
 }
 
 console.log('connected-component', _connectComponent(Vertex, Edge));
+
+
+module.exports = {
+  "FINDSET": _findSet,
+  "UNION": _union
+};

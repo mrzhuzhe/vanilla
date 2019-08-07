@@ -35,14 +35,11 @@ Vertex.forEach(e => {
 //  存一下临近的点和边
 Edge.forEach(e => {
   Adj[e.s].push({ neighbour: e.e, path: e })
+  Adj[e.e].push({ neighbour: e.s, path: e })
 })
 
-console.log("Adj", Adj);
-
-//  用于可视化
-Vertex.map((e, i) => e.id = e.n)
-Edge.map((e, i) => {
-  e.source = e.s;
-  e.target = e.e;
-  e.weight = e.w;
-})
+module.exports = {
+  Vertex,
+  Edge,
+  Adj
+};
