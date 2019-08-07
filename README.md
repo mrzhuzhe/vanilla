@@ -12,7 +12,7 @@ npm run bfs
 npm run miSubArr
 //  [DP]矩阵链乘法
 node dp/matrix-chain-multiply
-//  [graph] disjoint set 
+//  [graph] disjoint set
 node graph/connected-component
 //  [WIP]红黑树排序 目前未做删除功能/存在一个Object.assign(root)问题/还在测试中
 node sort/rb-tree
@@ -22,5 +22,16 @@ node sort/rb-tree
 node wpc2018/acm-marble-game
 
 ```
+
+## 可视化图
+``` javascript
+graph/visualize/index.html
+```
+可以可视化演示
+``` javascript
+graph\adj-list.js
+```
+中用临接链表显示的图，方便调试
+
 ## TODO
  1. 对原始数据做个可视化
