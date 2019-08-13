@@ -1,0 +1,201 @@
+//参考  http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/chap21.htm
+// 创建和返回一个新的不含任何元素的堆。
+var MAKE_HEAP = () => {
+  return {
+    root: [],
+    min: null,
+    //  n: 0
+  }
+}
+
+var root_concat = (root, x) => {
+  root = root.concat([x]);
+  var _length = root.length - 2 > 0 ? root.length - 2 : 0;
+  var _last = root[_length];
+  var _first = root[0];
+  x.left = _last;
+  _last.right = x;
+  x.right = _first;
+  _first.left = x;
+  return root
+}
+
+var root_delete = (root, x) => {
+  // 把 x 的左右 连在一起 x 本身的左右不变
+  for ( var i = 0; i < root.length; i++ ) {
+    if ( x === root[i] ) {
+      root[i].left.right = root[i].right;
+      root[i].right.left = root[i].left;
+      root.splice(i, 1)
+      break;
+    }
+  }
+  return root
+}
+
+// 将一个已填入关键字的元素x插入堆H中。
+var INSERT = (H, x) => {
+  x.d = 0;
+  x.p = null;
+  x.child = [];
+  x.left = x;
+  x.right = x;
+  x.mark = false;
+  H.root = root_concat(H.root, x);
+  if ( !!!H.min || x.key < H.min.key ) {
+    H.min = x;
+  }
+  //  H.n = H.n + 1; // 等价于 root.length 可舍去
+}
+
+//  返回一个指向堆H中具有最小关键字元素的指针。
+var MINIMUM = (H) => {
+  return H.min
+}
+
+//  从堆H中删除最小关键字的元素，并返回指向该元素的指针。
+var EXTRACT_MIN = (H) => {
+  var z = H.min;
+  if (!!z) {
+    while (z.child.length) {
+      // TODO注意此处到底是 shift 还是 pop
+      var _cur = z.child.shift();
+      _cur.p = null;
+      H.root = root_concat(H.root, _cur);
+    }
+    H.root = root_delete(H.root, z);
+    if ( z === z.right ){
+      H.min = null;
+    } else {
+      H.min = z.right;
+    }
+    CONSOLIDATE(H);
+    //  H.n = H.n - 1
+    return z
+  }
+}
+
+var getDegree = (root) => {
+  let max_D = 0;
+  for ( var i = 0; i < root.length; i++ ) {
+    if ( root[i] && root[i].d > max_D ) {
+      max_D = root[i].d;
+    }
+  }
+  return max_D
+}
+
+var CONSOLIDATE = (H) => {
+  //  TODO 这个地方可能也要优化下 这个地方还是线性时间
+  var max_D = getDegree(H.root);
+  var A = {};
+  for ( var j = 0; j <= max_D; j++ ) {
+    A[j] = null;
+  }
+  debugger
+  var w = 0;
+  while ( w < H.root.length ) {
+    var x = H.root[w];
+    var _d = x.d;
+    while (!!A[_d]) {
+      var y = A[_d];
+      if ( x.key > y.key ) {
+        var _temp = Object.assign({}, y);
+        y = Object.assign(y, x);
+        x = _temp;
+      }
+      H = FIB_HEAP_LINK(H, y, x);
+      A[_d] = null;
+      _d += 1;
+    }
+    A[_d] = x;
+    w++;
+  }
+  H.min = null;
+  // 重新来一次
+  max_D = getDegree(Object.values(A));
+  //  似乎可以用 A 完全覆盖 H.root
+  H.root = [];
+  for ( var j = 0; j <= max_D; j++ ) {
+    if (A[j]) {
+      //  then add A[i] to the root list of H
+      H.root = root_concat(H.root, A[j]);
+      if ( H.min === null || A[j].key < H.min.key ) {
+        H.min =  A[j];
+      }
+    }
+  }
+  return H
+}
+
+var FIB_HEAP_LINK = (H, y, x) => {
+  //  H.root = root_delete(H.root, y);
+  x.child = root_concat(x.child, y);
+  x.d += 1;
+  y.mark = false;
+  return H
+}
+
+/* */
+var H = MAKE_HEAP();
+INSERT(H, { "key": 3 });
+INSERT(H, { "key": 1 });
+INSERT(H, { "key": 2 });
+INSERT(H, { "key": 3 });
+INSERT(H, { "key": 2 });
+INSERT(H, { "key": 4 });
+INSERT(H, { "key": 5 });
+INSERT(H, { "key": 6 });
+INSERT(H, { "key": 1 });
+INSERT(H, { "key": 2 });
+//  console.log(H, MINIMUM(H));
+console.log(EXTRACT_MIN(H));
+/* */
+
+var FIB_HEAP_DECREASE_KEY = (H,x,k) => {
+  /*
+  if k > key[x]
+    then error "new key is greater than current key"
+  key[x] = k
+  y = p[x]
+  if y != NIL and key[x] < key[y]
+  then CUT(H,x,y)
+  CASCADING-CUT(H,y)
+  if key[x] < key[min[H]]
+  then min[H] = x
+  */
+}
+
+var CUT = (H,x,y) => {
+  /*
+  remove x from the child list of y, decrementing degree[y]
+  add x to the root list of H
+  p[x] = NIL
+  mark[x] = FALSE
+  */
+}
+
+var CASCADING_CUT = (H,y) => {
+/*
+  z = p[y]
+  if z != NIL
+  then if mark[y] = FALSE
+  then mark[y] = TRUE
+  else CUT(H,y,z)
+  CASCADING_CUT(H,z)
+*/
+}
+
+//  创建并返回一个包含堆H1和堆H2中所有元素的新堆。堆H1和H2
+var UNION = (H1，H2) => {
+/*
+FIB-HEAP-UNION(H1,H2)
+H = MAKE-FIB-HEAP()
+min[H] = min[H1]
+concatenate the root list of H2 with the root list of H
+if (min[H1] = NIL) or (min[H2]  NIL and min[H2] < min[H1])
+then min[H] = min[H2]
+n[H] = n[H1] + n[H2]
+return H
+*/
+}

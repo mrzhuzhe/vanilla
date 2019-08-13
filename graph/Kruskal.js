@@ -1,4 +1,4 @@
-var graph = require('./undirect-weighted-graph.js');
+var graph = require('./undirect-adjList.js');
 var connectedComponent = require('./connected-component.js')
 //  查在哪个集合
 var _findSet = connectedComponent.FINDSET;
