@@ -16,7 +16,7 @@ node dp/matrix-chain-multiply
 node graph/connected-component
 //  [graph] 最小生成树 Kruskal
 node graph/Kruskal
-//  [mergeable-heap] 斐波那契堆 用来在prim 和 dijstra 中做 extractMin 和 discreaseKey
+//  [mergeable-heap] 斐波那契堆 用来在prim 和 dijstra 中做 extractMin 和 decrease key
 node mergeable-heap/fibonacciHeap
 //  [WIP][graph] 最小生成树 prim
 node graph/prim
