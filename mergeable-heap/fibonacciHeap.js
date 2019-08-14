@@ -131,9 +131,46 @@ var CONSOLIDATE = (H) => {
 var FIB_HEAP_LINK = (H, y, x) => {
   //  H.root = root_delete(H.root, y);
   x.child = root_concat(x.child, y);
+  //  只有这一种情况会增加高度
+  y.p = x;
   x.d += 1;
   y.mark = false;
   return H
+}
+
+var FIB_HEAP_DECREASE_KEY = (H,x,k) => {
+  if ( k > x.key ) {
+    throw new Error("new key is greater than current key")
+  }
+  x.key = k;
+  y = x.p;
+  if ( y !== null && x.key < y.key ) {
+    CUT(H, x, y);
+    CASCADING_CUT(H, y);
+  }
+  if ( x.key < H.min.key ) {
+    H.min = x;
+  }
+}
+
+var CUT = (H, x, y) => {
+  y.child = root_delete(y.child, x)
+  y.d -= 1;
+  H.root = root_concat(H.root, x);
+  x.p = null;
+  x.mark = false;
+}
+
+var CASCADING_CUT = (H,y) => {
+  z = y.p;
+  if (z !== null) {
+    if (y.mark === false) {
+      y.mark = true;
+    } else {
+      CUT(H, y, z);
+      CASCADING_CUT(H, z);
+    }
+  }
 }
 
 /* */
@@ -150,41 +187,8 @@ INSERT(H, { "key": 1 });
 INSERT(H, { "key": 2 });
 //  console.log(H, MINIMUM(H));
 console.log(EXTRACT_MIN(H));
+console.log(FIB_HEAP_DECREASE_KEY(H, H.root[1].child[2].child[1].child[0], 1 ));
 /* */
-
-var FIB_HEAP_DECREASE_KEY = (H,x,k) => {
-  /*
-  if k > key[x]
-    then error "new key is greater than current key"
-  key[x] = k
-  y = p[x]
-  if y != NIL and key[x] < key[y]
-  then CUT(H,x,y)
-  CASCADING-CUT(H,y)
-  if key[x] < key[min[H]]
-  then min[H] = x
-  */
-}
-
-var CUT = (H,x,y) => {
-  /*
-  remove x from the child list of y, decrementing degree[y]
-  add x to the root list of H
-  p[x] = NIL
-  mark[x] = FALSE
-  */
-}
-
-var CASCADING_CUT = (H,y) => {
-/*
-  z = p[y]
-  if z != NIL
-  then if mark[y] = FALSE
-  then mark[y] = TRUE
-  else CUT(H,y,z)
-  CASCADING_CUT(H,z)
-*/
-}
 
 //  创建并返回一个包含堆H1和堆H2中所有元素的新堆。堆H1和H2
 var UNION = (H1，H2) => {
