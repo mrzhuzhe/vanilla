@@ -1,9 +1,18 @@
 //参考  http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/chap21.htm
+/*
+  现在有个问题
+  deceaseKey 查找元素非常麻烦
+  需要增加一个hash表来链接到每一个元素
+  key 元素名称 x.n value 元素指针
+这样的话 每个元素都必须有名称 n
+ */
+
 // 创建和返回一个新的不含任何元素的堆。
 var MAKE_HEAP = () => {
   return {
     root: [],
     min: null,
+    hash: {}
     //  n: 0
   }
 }
@@ -45,6 +54,8 @@ var INSERT = (H, x) => {
   if ( !!!H.min || x.key < H.min.key ) {
     H.min = x;
   }
+  //  做一个快速寻址的hash表
+  H.hash[x.n] = x
   //  H.n = H.n + 1; // 等价于 root.length 可舍去
 }
 
@@ -70,6 +81,8 @@ var EXTRACT_MIN = (H) => {
       H.min = z.right;
     }
     CONSOLIDATE(H);
+    //  hash 表中删除这个元素
+    delete H.hash[z.n]
     //  H.n = H.n - 1
     return z
   }
@@ -92,7 +105,7 @@ var CONSOLIDATE = (H) => {
   for ( var j = 0; j <= max_D; j++ ) {
     A[j] = null;
   }
-  debugger
+  //  debugger
   var w = 0;
   while ( w < H.root.length ) {
     var x = H.root[w];
@@ -103,6 +116,9 @@ var CONSOLIDATE = (H) => {
         var _temp = Object.assign({}, y);
         y = Object.assign(y, x);
         x = _temp;
+        //  对调的话 hash表中值也要对调
+        H.hash[x.n] = x;
+        H.hash[y.n] = y;
       }
       H = FIB_HEAP_LINK(H, y, x);
       A[_d] = null;
@@ -155,7 +171,8 @@ var FIB_HEAP_DECREASE_KEY = (H,x,k) => {
 
 var CUT = (H, x, y) => {
   y.child = root_delete(y.child, x)
-  y.d -= 1;
+  //  此处不能仅仅减一
+  y.d = getDegree(y.child);
   H.root = root_concat(H.root, x);
   x.p = null;
   x.mark = false;
@@ -173,25 +190,25 @@ var CASCADING_CUT = (H,y) => {
   }
 }
 
-/* */
+/* * /
 var H = MAKE_HEAP();
-INSERT(H, { "key": 3 });
-INSERT(H, { "key": 1 });
-INSERT(H, { "key": 2 });
-INSERT(H, { "key": 3 });
-INSERT(H, { "key": 2 });
-INSERT(H, { "key": 4 });
-INSERT(H, { "key": 5 });
-INSERT(H, { "key": 6 });
-INSERT(H, { "key": 1 });
-INSERT(H, { "key": 2 });
+INSERT(H, { "key": 3, "n": "a" });
+INSERT(H, { "key": 1, "n": "b" });
+INSERT(H, { "key": 2, "n": "c" });
+INSERT(H, { "key": 3, "n": "d" });
+INSERT(H, { "key": 2, "n": "e" });
+INSERT(H, { "key": 4, "n": "f" });
+INSERT(H, { "key": 5, "n": "g" });
+INSERT(H, { "key": 6, "n": "h" });
+INSERT(H, { "key": 1, "n": "i" });
+INSERT(H, { "key": 2, "n": "j" });
 //  console.log(H, MINIMUM(H));
 console.log(EXTRACT_MIN(H));
 console.log(FIB_HEAP_DECREASE_KEY(H, H.root[1].child[2].child[1].child[0], 1 ));
 /* */
 
 //  创建并返回一个包含堆H1和堆H2中所有元素的新堆。堆H1和H2
-var UNION = (H1，H2) => {
+var UNION = (H1, H2) => {
 /*
 FIB-HEAP-UNION(H1,H2)
 H = MAKE-FIB-HEAP()
@@ -203,3 +220,11 @@ n[H] = n[H1] + n[H2]
 return H
 */
 }
+
+
+module.exports = {
+  MAKE_HEAP,
+  EXTRACT_MIN,
+  INSERT,
+  FIB_HEAP_DECREASE_KEY
+};
