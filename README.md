@@ -18,7 +18,7 @@ node graph/connected-component
 node graph/Kruskal
 //  [mergeable-heap] 斐波那契堆 用来在prim 和 dijstra 中做 extractMin 和 decrease key
 node mergeable-heap/fibonacciHeap
-//  [WIP][graph] 最小生成树 prim
+//  [graph] 最小生成树 prim
 node graph/prim
 //  [WIP]红黑树排序 目前未做删除功能/存在一个Object.assign(root)问题/还在测试中
 node sort/rb-tree
@@ -42,3 +42,11 @@ graph/visualize/adj-list.js
 中用临接链表显示的有向图，方便调试
 
 ## TODO
+bellman-ford
+
+多源最短路径
+ford-warshall
+jhonson
+
+最大流
+fulkerson

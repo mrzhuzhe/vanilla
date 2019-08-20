@@ -1,3 +1,7 @@
+/*
+ prime 和 dijstra 的异同
+ https://stackoverflow.com/questions/14144279/difference-between-prims-and-dijkstras-algorithms
+*/
 var {
   Vertex,
   Edge,
