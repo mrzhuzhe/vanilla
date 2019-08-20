@@ -39,6 +39,7 @@ var _prime = ({
         _cur.prev = _min;
       }
     })
+    //  注意 此处不可 "输出" 只能 "打印" 因为在后面交换指针时会把元素顺序弄乱
     _r.push({
       n: _min.n,
       prev: _min.prev ? _min.prev.n : null,
