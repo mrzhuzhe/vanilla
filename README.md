@@ -50,6 +50,7 @@ graph/visualize/adj-list.js
 中用临接链表显示的有向图，方便调试
 
 ## TODO
+矩阵运算
 
 多源最短路径
 ford-warshall
