@@ -56,4 +56,12 @@ var _buildMatrix = (Vertex, Edge) => {
 
   return _res;
 }
-_buildMatrix( Vertex, Edge );
+
+var _Matrix = _buildMatrix( Vertex, Edge );
+console.log("Matrix", _Matrix);
+
+module.exports = {
+  Vertex,
+  Edge,
+  Matrix: _Matrix
+};
