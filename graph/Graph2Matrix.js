@@ -38,13 +38,17 @@ var _buildMatrix = (Vertex, Edge) => {
     for ( var i = 0; i < _len; i++ ) {
       // B 如果是对象 需要深拷贝 不然是指针 循环了n次
       if ( typeof item === "object") {
-        item = item.concat([]);
+        //  切断原型
+        var another_item = item.concat([]);
+        another_item[i] = 0;
+      } else {
+        var another_item = item;
       }
-      _res.push(item)
+      _res.push(another_item)
     }
     return _res
   }
-  var _res = _buildRow(_buildRow(0, _len), _len);
+  var _res = _buildRow(_buildRow(999, _len), _len);
 
   Vertex.forEach((e, i) => {
     _subMark[e.n] =  i
@@ -54,7 +58,10 @@ var _buildMatrix = (Vertex, Edge) => {
     _res[_subMark[e.s]][_subMark[e.e]] = e.w
   })
 
-  return _res;
+  return {
+    subMark: _subMark,
+    Matrix: _res
+  };
 }
 
 var _Matrix = _buildMatrix( Vertex, Edge );
@@ -63,5 +70,6 @@ console.log("Matrix", _Matrix);
 module.exports = {
   Vertex,
   Edge,
-  Matrix: _Matrix
+  subMark: _Matrix.subMark,
+  Matrix: _Matrix.Matrix
 };
