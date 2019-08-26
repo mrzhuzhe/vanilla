@@ -30,7 +30,8 @@ node graph/Kruskal
 node graph/prim
 //  [graph] bellman-ford负权最短路径
 node graph/bellman-ford
-
+//  [graph] floyd-floydWarshall
+node graph/floyd-warshall
 
 //  一道 wpc2018 题目 marble game
 node wpc2018/acm-marble-game
@@ -53,8 +54,9 @@ graph/visualize/adj-list.js
 矩阵运算
 
 多源最短路径
-ford-warshall
-johonson
+johnson
 
 最大流
 ford-fulkerson
+push-relabel
+pre-push-relabel

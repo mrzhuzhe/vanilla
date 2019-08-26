@@ -28,27 +28,28 @@ var Edge = [
   { s: "f" ,e: "d", w: 1 }
 ]
 
+//  初始化矩阵
+var _buildRow = (item, length) => {
+  var _res = [];
+  for ( var i = 0; i < length; i++ ) {
+    // B 如果是对象 需要深拷贝 不然是指针 循环了n次
+    if ( typeof item === "object") {
+      //  切断原型
+      var another_item = item.concat([]);
+      another_item[i] = 0;
+    } else {
+      var another_item = item;
+    }
+    _res.push(another_item)
+  }
+  return _res
+}
 
 var _buildMatrix = (Vertex, Edge) => {
   var _subMark = {};
   var _len = Vertex.length;
-  //  初始化矩阵
-  var _buildRow = (item, length) => {
-    var _res = [];
-    for ( var i = 0; i < _len; i++ ) {
-      // B 如果是对象 需要深拷贝 不然是指针 循环了n次
-      if ( typeof item === "object") {
-        //  切断原型
-        var another_item = item.concat([]);
-        another_item[i] = 0;
-      } else {
-        var another_item = item;
-      }
-      _res.push(another_item)
-    }
-    return _res
-  }
-  var _res = _buildRow(_buildRow(999, _len), _len);
+  var _INF = 999;
+  var _res = _buildRow(_buildRow(_INF, _len), _len);
 
   Vertex.forEach((e, i) => {
     _subMark[e.n] =  i
@@ -71,5 +72,6 @@ module.exports = {
   Vertex,
   Edge,
   subMark: _Matrix.subMark,
-  Matrix: _Matrix.Matrix
+  Matrix: _Matrix.Matrix,
+  buildRow: _buildRow
 };
