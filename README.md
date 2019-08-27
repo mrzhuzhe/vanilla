@@ -33,7 +33,8 @@ node graph/bellman-ford
 //  [graph] floyd-floydWarshall
 node graph/floyd-warshall
 
-//  [WIP][flow-network] 流网络 FF 算法 还有很多疑点
+//  [WIP][flow-network] 流网络 FF 算法
+//  还有很多疑点 例如 dfs 的实现 是否满流量判断等
 node flow-network/ford-fulkerson
 
 //  一道 wpc2018 题目 marble game
