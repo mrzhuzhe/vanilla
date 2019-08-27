@@ -33,6 +33,9 @@ node graph/bellman-ford
 //  [graph] floyd-floydWarshall
 node graph/floyd-warshall
 
+//  [WIP][flow-network] 流网络 FF 算法 还有很多疑点
+node flow-network/ford-fulkerson
+
 //  一道 wpc2018 题目 marble game
 node wpc2018/acm-marble-game
 
@@ -57,6 +60,5 @@ graph/visualize/adj-list.js
 johnson
 
 最大流
-ford-fulkerson
 push-relabel
 pre-push-relabel
