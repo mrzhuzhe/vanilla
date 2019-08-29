@@ -84,10 +84,11 @@ var FORD_FULKERSON = (Vertex, Edge, Adj, t, s) => {
       w: e.w,
       f: 0
     };
-    _edgeHash[e.e + "-" + e.s] = {
+    //  反相边如何处理
+    /* _edgeHash[e.e + "-" + e.s] = {
       w: e.w,
       f: 0
-    };
+    }; */
   })
   var _Gfpath = graph_bfs(Vertex, Adj, "f", "a", _edgeHash);
   while (_Gfpath.success) {
@@ -95,8 +96,8 @@ var FORD_FULKERSON = (Vertex, Edge, Adj, t, s) => {
       // 残存容量
       var _cfp = _Gfpath._min;
       _edgeHash[e.p + "-" + e.n].f += _cfp;
-      //  反向边注入反向流量 ？？？ TODO 这一步是不是可以不要
-      _edgeHash[e.n + "-" + e.p].f = -_edgeHash[e.p + "-" + e.n].f;
+      //  反向边注入反向流量
+      //`_edgeHash[e.n + "-" + e.p].f = -_edgeHash[e.p + "-" + e.n].f;
     })
     _Gfpath = graph_bfs(Vertex, Adj, "f", "a", _edgeHash);
   }
