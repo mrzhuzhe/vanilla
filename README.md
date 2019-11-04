@@ -39,7 +39,7 @@ node graph/floyd-warshall
 node flow-network/ford-fulkerson
 
 //  [Geometry] 计算几何学
-//  [convexhull]可视化演示凸包
+//  [convexhull]可视化演示凸包 [bug]数量多的时候还是有点bug
 geometry/convexhull.html
 //  [convexhull]简单的计算凸包，处理了90度的情况
 geometry/convexhull.js
@@ -73,3 +73,17 @@ pre-push-relabel
 矩阵求逆
 最小二乘
 矩阵求导
+
+数论算法：
+中国余数定理
+rsa
+
+字符串匹配：
+有限自动机
+KMP-pi函数
+
+计算几何学：
+线段相交
+扫描法
+凸包nlogn
+凸包包装法
