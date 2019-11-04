@@ -14,7 +14,8 @@ npm run bfs
 npm run miSubArr
 //  [DP]矩阵链乘法
 node dp/matrix-chain-multiply
-
+//  [DP]一道 wpc2018 题目 marble game
+node wpc2018/acm-marble-game
 
 //  [mergeable-heap] 斐波那契堆 用来在prim 和 dijstra 中做 extractMin 和 decrease key
 node mergeable-heap/fibonacciHeap
@@ -37,8 +38,12 @@ node graph/floyd-warshall
 //  还有很多疑点 例如 dfs 的实现 是否满流量判断等
 node flow-network/ford-fulkerson
 
-//  一道 wpc2018 题目 marble game
-node wpc2018/acm-marble-game
+//  [Geometry] 计算几何学
+//  [convexhull]可视化演示凸包
+geometry/convexhull.html
+//  [convexhull]简单的计算凸包，处理了90度的情况
+geometry/convexhull.js
+
 
 ```
 
@@ -55,11 +60,16 @@ graph/visualize/adj-list.js
 中用临接链表显示的有向图，方便调试
 
 ## TODO
-矩阵运算
-
-多源最短路径
+多源最短路径:
 johnson
+A* 搜索
 
-最大流
+最大流:
 push-relabel
 pre-push-relabel
+
+矩阵计算:
+矩阵LU LUP分解
+矩阵求逆
+最小二乘
+矩阵求导
