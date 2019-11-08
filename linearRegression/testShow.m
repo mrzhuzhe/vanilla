@@ -22,7 +22,7 @@ fprintf('%f %f \n', theta(1), theta(2), theta(3));
 
 hold on;
 
-plot3(X(:,2), X(:,3) , X*theta, '-', 'MarkerSize', 10)
+%plot3(X(:,2), X(:,3) , X*theta, '-', 'MarkerSize', 10)
 
 % draw a subspace
 
