@@ -38,13 +38,6 @@ node graph/floyd-warshall
 //  还有很多疑点 例如 dfs 的实现 是否满流量判断等
 node flow-network/ford-fulkerson
 
-//  [Geometry] 计算几何学
-//  [convexhull]可视化演示凸包 [bug]数量多的时候还是有点bug
-geometry/convexhull.html
-//  [convexhull]简单的计算凸包，处理了90度的情况
-geometry/convexhull.js
-
-
 ```
 
 ## 可视化图
@@ -58,6 +51,29 @@ graph/visualize/index.html
 graph/visualize/adj-list.js
 ```
 中用临接链表显示的有向图，方便调试
+
+###  [Geometry] 计算几何学
+``` javascript
+//  [convexhull]可视化演示凸包 [bug]数量多的时候还是有点bug
+geometry/convexhull.html
+//  [convexhull]简单的计算凸包，处理了90度的情况
+geometry/convexhull.js
+```
+
+## 简单离线数据分析
+
+ 这一部分改为用 octave 实现
+
+``` matlab
+[linearRegression] 线性回归拟合
+ % 计算损失函数
+ computeCost.m
+ % 梯度下降
+ gradientDescent.m
+ %  演示运行，演示二元一阶多项式 在均方差损失函数下，用梯度下降，的线性回归
+ linearRegression/testShow.m
+```
+
 
 ## TODO
 多源最短路径:
@@ -85,5 +101,4 @@ KMP-pi函数
 计算几何学：
 线段相交
 扫描法
-凸包nlogn
 凸包包装法
