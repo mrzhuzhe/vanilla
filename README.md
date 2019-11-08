@@ -67,9 +67,9 @@ geometry/convexhull.js
 ``` matlab
 [linearRegression] 线性回归拟合
  % 计算损失函数
- computeCost.m
+ linearRegression/computeCost.m
  % 梯度下降
- gradientDescent.m
+ linearRegression/gradientDescent.m
  %  演示运行，演示二元一阶多项式 在均方差损失函数下，用梯度下降，的线性回归
  linearRegression/testShow.m
 ```
