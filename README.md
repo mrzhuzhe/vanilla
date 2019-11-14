@@ -72,6 +72,18 @@ geometry/convexhull.js
  linearRegression/gradientDescent.m
  %  演示运行，演示二元一阶多项式 在均方差损失函数下，用梯度下降，的线性回归
  linearRegression/testShow.m
+
+[logisticRegression] 逻辑回归
+2个feature判定, 附带数据可视化
+ logisticRegression/show.m
+1到10数字的逻辑回归判定，通过交叉熵函数，一对多逻辑回归，其中不仅用到梯度下降法，还用到了梯度检查法
+ neuralNetworks/showOnevsAll.m
+
+[neuralNetworks]
+neuralNetworks/showNN.m 正向神经网络的演示，其中用的是已经训练好的weight，并没有bp
+
+
+
 ```
 
 
