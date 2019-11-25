@@ -219,7 +219,7 @@ displayData(Theta1(:, 2:end));
 
 fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
-
+%{
 %% ================= Part 10: Implement Predict =================
 %  After training the neural network, we would like to use it to predict
 %  the labels. You will now implement the "predict" function to use the
@@ -229,3 +229,4 @@ pause;
 pred = predict(Theta1, Theta2, X);
 
 fprintf('\nTraining Set Accuracy: %f\n', mean(double(pred == y)) * 100);
+%}

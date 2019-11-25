@@ -19,8 +19,11 @@ function [J grad] = nnCostFunction(nn_params, ...
 Theta1 = reshape(nn_params(1:hidden_layer_size * (input_layer_size + 1)), ...
                  hidden_layer_size, (input_layer_size + 1));
 
+
 Theta2 = reshape(nn_params((1 + (hidden_layer_size * (input_layer_size + 1))):end), ...
                  num_labels, (hidden_layer_size + 1));
+
+printf("In nnCostFunction Theta1: %d %d Theta2: %d %d", size(Theta1), size(Theta2));
 
 % Setup some useful variables
 m = size(X, 1);
@@ -64,10 +67,12 @@ Theta2_grad = zeros(size(Theta2));
 
 I = eye(num_labels);
 Y = zeros(m, num_labels);
+
+printf("I: %d Y: %d", size(I), size(Y));
+
 for i=1:m
   Y(i, :)= I(y(i), :);
 end
-
 
 
 A1 = [ones(m, 1) X];
@@ -76,7 +81,7 @@ A2 = [ones(size(Z2, 1), 1) sigmoid(Z2)];
 Z3 = A2*Theta2';
 H = A3 = sigmoid(Z3);
 
-
+% 罚函数 when lambda is zero result shall always be 0
 penalty = (lambda/(2*m))*(sum(sum(Theta1(:, 2:end).^2, 2)) + sum(sum(Theta2(:,2:end).^2, 2)));
 
 J = (1/m)*sum(sum((-Y).*log(H) - (1-Y).*log(1-H), 2));
