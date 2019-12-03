@@ -87,14 +87,23 @@ penalty = (lambda/(2*m))*(sum(sum(Theta1(:, 2:end).^2, 2)) + sum(sum(Theta2(:,2:
 J = (1/m)*sum(sum((-Y).*log(H) - (1-Y).*log(1-H), 2));
 J = J + penalty;
 
+% 第三层损失
 Sigma3 = A3 - Y;
+
+%{
+  第二层损失  第三层损失 * 第二层 theta 再乘以 地二层sigmoid梯度
+  为何这里要在左侧补一列1？
+  为何要去掉第一列？
+%}
 Sigma2 = (Sigma3*Theta2 .* sigmoidGradient([ones(size(Z2, 1), 1) Z2]))(:, 2:end);
 
-
+%{
+  损失乘以当前行结果
+%}
 Delta_1 = Sigma2'*A1;
 Delta_2 = Sigma3'*A2;
 
-
+% 一阶范数 正则化
 Theta1_grad = Delta_1./m + (lambda/m)*[zeros(size(Theta1,1), 1) Theta1(:, 2:end)];
 Theta2_grad = Delta_2./m + (lambda/m)*[zeros(size(Theta2,1), 1) Theta2(:, 2:end)];
 
