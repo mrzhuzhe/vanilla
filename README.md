@@ -81,8 +81,10 @@ geometry/convexhull.js
 
 [neuralNetworks]
 neuralNetworks/showNN.m 正向神经网络的演示，其中用的是已经训练好的weight，并没有bp
+backpropagation/show.m 反向传播 TODO 梯度计算还需理解
 
-
+[svm]
+svm/gaussianKernelTest.m 高斯核 TODO alpha 训练过程还需理解
 
 ```
 
