@@ -1,11 +1,9 @@
 %%  import
-%     gaussianKernel.m
-%     dataset3Params.m
-%     processEmail.m
-%     emailFeatures.m
 %
 %     plotData.m
 %     svmTrain.m
+%     linearKernel.m
+%     visualizeBoundaryLinear.m
 %
 %%
 
@@ -16,7 +14,7 @@ fprintf('Loading and Visualizing Data ...\n')
 
 % Load from ex6data1:
 % You will have X, y in your environment
-load('ex6data1.mat');
+load('./data/ex6data1.mat');
 
 % Plot training data
 plotData(X, y);
