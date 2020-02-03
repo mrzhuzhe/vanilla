@@ -85,6 +85,7 @@ backpropagation/show.m 反向传播 TODO 梯度计算还需理解
 
 [svm]
 svm/gaussianKernelTest.m 高斯核 TODO alpha 训练过程还需理解
+svm/emailJudge/main.m svm判定语料
 
 ```
 
