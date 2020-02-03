@@ -74,18 +74,25 @@ geometry/convexhull.js
  linearRegression/testShow.m
 
 [logisticRegression] 逻辑回归
-2个feature判定, 附带数据可视化
+%  2个feature判定, 附带数据可视化
  logisticRegression/show.m
-1到10数字的逻辑回归判定，通过交叉熵函数，一对多逻辑回归，其中不仅用到梯度下降法，还用到了梯度检查法
+%  1到10数字的逻辑回归判定，通过交叉熵函数，一对多逻辑回归，其中不仅用到梯度下降法，还用到了梯度检查法
  neuralNetworks/showOnevsAll.m
 
 [neuralNetworks]
-neuralNetworks/showNN.m 正向神经网络的演示，其中用的是已经训练好的weight，并没有bp
-backpropagation/show.m 反向传播 TODO 梯度计算还需理解
+% 正向神经网络的演示，其中用的是已经训练好的weight，并没有bp
+neuralNetworks/showNN.m
+% 反向传播 TODO 梯度计算还需理解
+backpropagation/show.m
 
 [svm]
-svm/gaussianKernelTest.m 高斯核 TODO alpha 训练过程还需理解
-svm/emailJudge/main.m svm判定语料
+% 高斯核 TODO alpha 训练过程还需理解
+svm/gaussianKernelTest.m
+% svm判定语料
+svm/emailJudge/main.m
+
+[k-mean]
+k-mean/main.m
 
 ```
 
