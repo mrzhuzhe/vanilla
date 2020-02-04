@@ -35,3 +35,40 @@ max_iters = 10;
 initial_centroids = [3 3; 6 2; 8 5];
 [centroids, idx] = runkMeans(X, initial_centroids, max_iters, true);
 fprintf('\nK-Means Done.\n\n');
+
+
+%
+A = double(imread('data/bird_small.png'));
+A = A ./ 255;
+img_size = size(A);
+
+% 分为三通道？
+X = reshape(A, img_size(1) * img_size(2), 3);
+
+K = 16;
+max_iters = 10;
+
+initial_centroids = kMeansInitCentroids(X, K);
+
+% Run K-Means
+[centroids, idx2] = runkMeans(X, initial_centroids, max_iters);
+
+idx = findClosestCentroids(X, centroids);
+
+%{
+  注意 这里 centroid 是 16 x 3 的  idx 却是 X 的 m 长度的
+  相当于把 centroids 的很多行根据聚类的 k=16核心 复制到其他行
+  相当于 只用pivot r=16 个像素 复现矩阵所有内容
+  相当于 只用16种颜色 复现图片
+%}
+
+X_recovered = centroids(idx,:);
+X_recovered = reshape(X_recovered, img_size(1), img_size(2), 3);
+
+subplot(1, 2, 1);
+imagesc(A);
+title('Original');
+
+subplot(1, 2, 2);
+imagesc(X_recovered)
+title(sprintf('Compressed, with %d colors.', K));

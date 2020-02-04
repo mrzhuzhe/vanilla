@@ -92,7 +92,16 @@ svm/gaussianKernelTest.m
 svm/emailJudge/main.m
 
 [k-mean]
+% k-mean 均值聚类
 k-mean/main.m
+
+[pca]
+% 先做co-matrix 再做 svd 分解 最后练习特征投影
+pca/main.m
+% 把聚类的颜色三维投影到二维
+pca/kmShow.m
+% 得特征脸，再对特征脸做降维
+pca/pcaShow.m
 
 ```
 
