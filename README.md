@@ -64,6 +64,10 @@ geometry/convexhull.js
 
  这一部分改为用 octave 实现
 
+ 这一部分是 Andrew Ng 2011版 的 machine learning 课程
+
+ 连抄带写，除ex8 已全部完成
+
 ``` matlab
 [linearRegression] 线性回归拟合
  % 计算损失函数
@@ -134,8 +138,4 @@ KMP-pi函数
 扫描法
 凸包包装法
 
-数据拟合：
-逻辑斯特回归
-
-神经网络：
-简单非线性分类
+pytorch 入门

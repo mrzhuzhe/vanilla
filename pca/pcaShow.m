@@ -56,15 +56,16 @@ pause;
 %  visualize only using those K dimensions
 %  Compare to the original input, which is also displayed
 
-fprintf('\nVisualizing the projected (reduced dimension) faces.\n\n' ...
-         '(this mght take 5 minute or two ...)\n\n');
+fprintf(['\nVisualizing the projected (reduced dimension) faces.\n\n' ...
+         '(this mght take 5 minute or two ...)\n\n']);
 
 K = 100;
 X_rec  = recoverData(Z, U, K);
 
+figure
 % Display normalized data
 subplot(1, 2, 1);
-%displayData(X_norm(1:100,:));
+displayData(X_norm(1:100,:));
 title('Original faces');
 %axis square;
 
