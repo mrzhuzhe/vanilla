@@ -111,6 +111,9 @@ pca/pcaShow.m
 % 用 F1 evalate 做异常检测
 abnormalDetect\main.m
 
+[Collaborative Filtering]
+% TODO 协同过滤的 relative difference 似乎达不到收敛值范围内
+cof/main.m
 ```
 
 
