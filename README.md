@@ -107,6 +107,10 @@ pca/kmShow.m
 % 得特征脸，再对特征脸做降维
 pca/pcaShow.m
 
+[F1 abnormalDetect]
+% 用 F1 evalate 做异常检测
+abnormalDetect\main.m
+
 ```
 
 
