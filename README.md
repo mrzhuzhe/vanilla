@@ -66,7 +66,7 @@ geometry/convexhull.js
 
  这一部分是 Andrew Ng 2011版 的 machine learning 课程
 
- 连抄带写，除ex8 已全部完成
+ 连抄带写，已全部完成
 
 ``` matlab
 [linearRegression] 线性回归拟合
