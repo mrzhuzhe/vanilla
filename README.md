@@ -9,6 +9,8 @@ npm run dfs
 //  breath first search 非递归 右序
 npm run bfs
 
+//  转移矩阵，建议放到控制台里直接执行
+matrix/index.js
 
 //  [DP]最大自增子序列  
 npm run miSubArr
@@ -118,31 +120,33 @@ cof/main.m
 
 
 ## TODO
-多源最短路径:
-johnson
-A* 搜索
+1. 多源最短路径:
+- johnson
+- A* 搜索
 
-最大流:
-push-relabel
-pre-push-relabel
+2. 最大流:
+- push-relabel
+- pre-push-relabel
 
-矩阵计算:
-矩阵LU LUP分解
-矩阵求逆
-最小二乘
-矩阵求导
+3. 矩阵计算:
+- 矩阵LU LUP分解
+- 矩阵求逆
+- 最小二乘
+- 矩阵求导
 
-数论算法：
-中国余数定理
-rsa
+4. 数论算法：
+- 中国余数定理
+- rsa
 
-字符串匹配：
-有限自动机
-KMP-pi函数
+5. 字符串匹配：
+- 有限自动机
+- KMP-pi函数
 
-计算几何学：
-线段相交
-扫描法
-凸包包装法
+6. 计算几何学：
+- 线段相交
+- 扫描法
+- 凸包包装法
 
-pytorch 入门
+7. 汉明码
+- 实现
+- 容错率，性能度量
