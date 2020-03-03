@@ -66,9 +66,9 @@ var _inpPadding = (originMatrix, paddingSize) => {
 //  原始矩阵
 var a = [
 [0 ,0 ,0 ,0, 0],
-[0 ,1 ,2 ,3, 0],
-[0 ,1 ,2 ,3, 0],
-[0 ,1 ,2 ,3, 0],
+[1 ,2 ,3 ,0, 0],
+[0 ,4 ,5 ,6, 0],
+[0 ,0 ,7 ,8, 9],
 [0 ,0 ,0 ,0, 0]
 ];
 
@@ -82,16 +82,47 @@ var b = _getToeplitzMatrix(_limit)
 // 初始化
 var _r = _matmul(a, b);
 
+//  映射
+var _hash = (num) => {
+  var _r = {
+    0: "&nbsp;",
+    1: "你",
+    2: "是",
+    3: "猪",
+  }[num]
+  if (_r){
+    return _r
+  } else {
+    return num
+  }
+}
+
+var _createElem = () => {
+  var _mask = document.createElement("div");
+  _mask.style.position = "fixed";
+  _mask.style.width = "100%";
+  _mask.style.height = "100%";
+  _mask.style.top = "0px";
+  _mask.style.left = "0px";
+  _mask.style.color = "#f00";
+  _mask.style.background = "#ccc";
+  _mask.style.opacity = ".75";
+  return _mask
+}
+
+var _mask = _createElem();
+document.body.appendChild(_mask)
 //  每秒刷新
 var _timer = setInterval(function(){
   _r = _matmul(_r, b);
-
   var _html = '';
   _r.forEach(m => {
     _html += '<p>';
-    _html += m.join(" ")
+    m.forEach((n) => {
+      _html += _hash(n) + "&emsp;"
+    });
     _html += '</p>';
   })
-  document.body.innerHTML = _html;
+  _mask.innerHTML = _html;
   //console.log(JSON.stringify(_r));
 }, 1000);
