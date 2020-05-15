@@ -65,6 +65,7 @@ idx = findClosestCentroids(X, centroids);
 X_recovered = centroids(idx,:);
 X_recovered = reshape(X_recovered, img_size(1), img_size(2), 3);
 
+figure
 subplot(1, 2, 1);
 imagesc(A);
 title('Original');
