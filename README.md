@@ -62,6 +62,12 @@ geometry/convexhull.html
 geometry/convexhull.js
 ```
 
+### ising 模型
+``` javascript
+//  需要改成life game
+/ising/visuallize/index.html
+```
+
 ## 简单离线数据分析
 
  这一部分改为用 octave 实现
