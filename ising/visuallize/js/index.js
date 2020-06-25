@@ -81,8 +81,12 @@ class _app {
         return 
     }
     activeSingleNode(num) {
-        this.nodeHash[num].e.style.backgroundColor = "#000";
-        this.nodeHash[num].s = 1;
+        //  只有百分之六十的概率激活
+        var _prop = Math.random() * 10;
+        if (_prop > 6 ) {            
+            this.nodeHash[num].e.style.backgroundColor = "#000";
+            this.nodeHash[num].s = 1;
+        }
     }
     resetSingleNode(num) {
         this.nodeHash[num].e.style.backgroundColor = "#fff";
