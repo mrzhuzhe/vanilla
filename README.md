@@ -64,7 +64,9 @@ geometry/convexhull.js
 
 ### ising 模型
 ``` javascript
-//  需要改成life game
+//  目前做了
+//  1.一个简单的life game 十字型扩散 不可扩散到有生物的点 扩散成功率固定为百分之六十
+//  2.一个简单马尔可夫链 上 右 下 左 概率分别为 1 4 4 1
 /ising/visuallize/index.html
 ```
 
