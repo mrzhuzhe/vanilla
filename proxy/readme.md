@@ -10,3 +10,4 @@ https://www.chromium.org/chromium-os/chromiumos-design-docs/network-portal-detec
 2. https://xtls.github.io/
 3. https://tools.ietf.org/html/rfc1928
 4. https://github.com/trojan-gfw/trojan/issues/14
+5. 惧死者死 捐生者还 https://github.com/XTLS/Xray-core/issues/91
