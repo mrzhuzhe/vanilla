@@ -4,3 +4,4 @@ k-mean/data
 pca/data
 abnormalDetect/data
 cof/data
+.DS_Store
