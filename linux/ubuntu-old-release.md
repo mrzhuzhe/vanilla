@@ -12,8 +12,8 @@ sudo sed -i -re 's/archive.canonical.com/old-releases.ubuntu.com/g' /etc/apt/sou
 
 但是老版本有些跨版本更新没法升级，目前没有成功从18版本升级到20版本
 
-# nginx 相关
-3. nginx ssl https://docs.nginx.com/nginx/admin-guide/web-server/serving-static-content/
+3. systemd 查[unit]日志 journalctl -f -u [unit]
 
-# certibot
-4. 自动证书 https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx
+4. 开启bbr
+
+sudo bash -c 'echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf' && sudo bash -c 'echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf && sudo sysctl -p
