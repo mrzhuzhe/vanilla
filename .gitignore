@@ -6,3 +6,4 @@ abnormalDetect/data
 cof/data
 .DS_Store
 Donotsubmit
+*.out
