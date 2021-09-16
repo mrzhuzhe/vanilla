@@ -78,6 +78,8 @@ geometry/convexhull.js
 
  连抄带写，已全部完成
 
+ 2021/9月更新 增加多非线性分类可视化的notebook
+
 ``` matlab
 [linearRegression] 线性回归拟合
  % 计算损失函数
@@ -124,7 +126,14 @@ abnormalDetect\main.m
 [Collaborative Filtering]
 % TODO 协同过滤的 relative difference 似乎达不到收敛值范围内
 cof/main.m
+
+[神经网络非线性回归]
+% 可视化 relu 在神经网络中的效果
+myu-ssl/linearAlgebra.ipynb
+
 ```
+
+
 
 
 ## TODO
