@@ -132,9 +132,14 @@ cof/main.m
 myu-ssl/linearAlgebra.ipynb
 
 ```
+## C++ 简单入门
 
-
-
+```
+g++ -o ./cpp/out/addpntr.out ./cpp/addpntr.cpp
+```
+1. ./cpp/addpntr.cpp  指针
+2. ./cpp/pointers.cpp 指针长度
+3. ./cpp/stacktem.cpp 类模版
 
 ## TODO
 1. 多源最短路径:
